@@ -12,15 +12,12 @@
     		<p> Here I've been experimenting with:</p>
     		<ul><li>The Python and Django</li><li>Deploying sites</li><li>HTML templates</li><li>CSS</li>
     	</div>
-    	<div>
-    		<h3><a href="">My first post</a></h3>
-    		<p>Take a read of my very first blog on my very first website build</p>
-    		<p>Published: 23rd April 2016</p>
-    	</div>
-    	<div>
-    		<h3><a href="">My second post</a></h3>
-    		<p>Take a read of the progress on my very first website build</p>
-    		<p>Published: 23rd April 2016</p>
-    	</div>
+    	{% for post in posts %}
+  			<div>
+        		<p>published: {{ post.published_date }}</p>
+        		<h1><a href="">{{ post.title }}</a></h1>
+        		<p>{{ post.text|linebreaks }}</p>
+    		</div>
+		{% endfor %}
     </body>
 </html>
